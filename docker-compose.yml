@@ -1,8 +1,15 @@
 version: "3"
 
+x-app: &default-app
+  build: .
+  volumes:
+    - .:/code
+  depends_on:
+    - "redis"
+
 services:
   web:
-    build: .
+    <<: *default-app
     image: moonshadow/django-docker:${IMAGE_TAG:-latest}
     command: python3 manage.py runserver 0.0.0.0:8000
     # command: [
@@ -13,11 +20,14 @@ services:
     #     "--log-file=-",
     #     "-b",
     #     "0.0.0.0:8000",
-    #     "composeexample.wsgi",
+    #     "django_docker.wsgi",
     #   ]
-    volumes:
-      - .:/code
     ports:
       - "8000:8000"
     environment:
       DEV_MODE: 1
+  worker:
+    <<: *default-app
+    command: celery -A django_docker worker -l "${CELERY_LOG_LEVEL:-info}"
+  redis:
+    image: "redis:alpine"

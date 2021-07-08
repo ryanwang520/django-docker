@@ -1,0 +1,4 @@
+*
+!django_docker
+!requirements.txt
+!entrypoint.py

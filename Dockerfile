@@ -22,4 +22,4 @@ ADD . /code/
 EXPOSE 8000
 ENTRYPOINT ["tini", "--", "./entrypoint.sh"]
 # CMD ["python", "manage.py", "runserver"]
-CMD ["gunicorn", "--workers=2","--threads=4", "--log-file=-", "-b", "0.0.0.0:8000", "composeexample.wsgi"]
+CMD ["gunicorn", "--workers=2","--threads=4", "--log-file=-", "-b", "0.0.0.0:8000", "django_docker.wsgi"]
