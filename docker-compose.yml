@@ -5,6 +5,16 @@ services:
     build: .
     image: moonshadow/django-docker:${IMAGE_TAG:-latest}
     command: python3 manage.py runserver 0.0.0.0:8000
+    # command: [
+    #     "gunicorn",
+    #     "--worker-class=gthread",
+    #     "--workers=4",
+    #     "--threads=8",
+    #     "--log-file=-",
+    #     "-b",
+    #     "0.0.0.0:8000",
+    #     "composeexample.wsgi",
+    #   ]
     volumes:
       - .:/code
     ports:
