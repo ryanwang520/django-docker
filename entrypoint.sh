@@ -1,5 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 echo "start django server in docker"
-python manage.py migrate
+if [ -v DEV_MODE ]; then
+	python manage.py migrate
+fi
 exec "$@"
