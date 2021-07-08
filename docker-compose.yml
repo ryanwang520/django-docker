@@ -3,7 +3,7 @@ version: "3"
 x-app: &default-app
   build: .
   volumes:
-    - .:/code
+    - .:/home/appuser
   depends_on:
     - "redis"
 

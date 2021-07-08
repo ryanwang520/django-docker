@@ -8,16 +8,16 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	rm -rf /var/lib/apt/lists/*
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONFAULTHANDLER 1
-RUN mkdir /code
-WORKDIR /code
-ADD requirements.txt /code/
-RUN --mount=type=cache,target=/root/.cache pip install -r requirements.txt
+
+COPY requirements.txt /tmp/
+RUN --mount=type=cache,target=/root/.cache pip install -r /tmp/requirements.txt
 
 
 RUN useradd --create-home appuser 
+WORKDIR /home/appuser
 USER appuser
 
-ADD . /code/
+COPY . .
 
 EXPOSE 8000
 ENTRYPOINT ["tini", "--", "./entrypoint.sh"]
