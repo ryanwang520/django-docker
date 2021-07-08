@@ -2,8 +2,9 @@
 set -euxo pipefail
 GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) 
 GIT_COMMIT=$(git rev-parse --short HEAD) 
+IMAGE_NAME="moonshadow/django-docker" 
+docker build -t "$IMAGE_NAME:$GIT_BRANCH" \
+             -t "$IMAGE_NAME:$GIT_COMMIT" .
+docker push "$IMAGE_NAME:$GIT_BRANCH"
+docker push "$IMAGE_NAME:$GIT_COMMIT"
 
-IMAGE_TAG=$GIT_BRANCH docker-compose build
-IMAGE_TAG=$GIT_COMMIT docker-compose build
-IMAGE_TAG=$GIT_BRANCH docker-compose push 
-IMAGE_TAG=$GIT_COMMIT docker-compose push 

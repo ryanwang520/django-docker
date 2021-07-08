@@ -10,7 +10,6 @@ x-app: &default-app
 services:
   web:
     <<: *default-app
-    image: moonshadow/django-docker:${IMAGE_TAG:-latest}
     command: python3 manage.py runserver 0.0.0.0:8000
     # command: [
     #     "gunicorn",

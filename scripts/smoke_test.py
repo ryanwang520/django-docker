@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import time
 from subprocess import check_call
 from urllib.request import urlopen
