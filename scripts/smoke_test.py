@@ -6,9 +6,22 @@ check_call(
 )
 # Wait for the server to start. A better implementation would
 # poll in a loop:
-time.sleep(5)
-# Check if the server started (it'll throw an exception if not): 
+def check():
+    count = 0
+    while True:
+        time.sleep(0.5)
+        # Check if the server started (it'll throw an exception if not): 
+        try:
+            urlopen("http://localhost:8000").read() 
+        except Exception:
+            if count < 5:
+                count +=1 
+                continue
+            else:
+                raise
+        else:
+            break
 try:
-    urlopen("http://localhost:8000").read() 
+    check()
 finally:
     check_call("docker kill smoke".split())
