@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "django-docker"
+version = "0.1.0"
+description = "docker example for django project"
+authors = ["Ryan Wang <hwwangwang@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.5"
+python-decouple = "^3.4"
+gunicorn = "^20.1.0"
+gevent = "^21.1.2"
+requests = "^2.25.1"
+celery = "^5.1.2"
+django-celery-results = "^2.2.0"
+redis = "^3.5.3"
+
+[tool.poetry.dev-dependencies]
+black = "^21.6b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
