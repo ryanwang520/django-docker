@@ -1,0 +1,13 @@
+version: "3"
+
+
+services:
+  web:
+	image: "moonshadow/django-docker:master"
+    ports:
+      - "8000:8000"
+  worker:
+	image: "moonshadow/django-docker:master"
+    command: celery -A django_docker worker -l "${CELERY_LOG_LEVEL:-info}"
+  redis:
+    image: "redis:alpine"
