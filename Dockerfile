@@ -17,9 +17,9 @@ RUN useradd --create-home appuser
 WORKDIR /home/appuser
 USER appuser
 
-COPY . .
+COPY --chown=appuser . .
 
 EXPOSE 8000
+RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["tini", "--", "./entrypoint.sh"]
-# CMD ["python", "manage.py", "runserver"]
 CMD ["gunicorn", "--workers=2","--threads=4", "--log-file=-", "-b", "0.0.0.0:8000", "django_docker.wsgi"]
