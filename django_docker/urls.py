@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('django_docker.apps.main.urls')),
     path('debug/', views.debug),
+    path('ping', views.ping),
     path('add/', views.test_add),
 ]

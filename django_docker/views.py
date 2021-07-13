@@ -8,6 +8,8 @@ def debug(request):
     return {"hello": "world"}
     # return JsonResponse({"hello": "world"})
 
+def ping(request):
+	return "pong"
 
 # return  HttpResponse(str(response))
 

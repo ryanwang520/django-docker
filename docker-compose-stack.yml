@@ -7,7 +7,7 @@ services:
     ports:
       - "8000:8000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/debug/"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/ping"]
       interval: 5s
       timeout: 10s
       retries: 3
