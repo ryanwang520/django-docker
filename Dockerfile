@@ -2,6 +2,7 @@
 FROM python:3.9-slim-buster
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
+	apt-get install -y procps net-tools iputils-ping curl && \
 	apt-get -y upgrade && \
 	apt-get install -y --no-install-recommends tini && \ 
 	apt-get -y clean && \
