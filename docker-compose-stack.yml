@@ -1,13 +1,26 @@
-version: "3"
-
+version: "3.8"
 
 services:
   web:
-	image: "moonshadow/django-docker:master"
+    #image: "moonshadow/django-docker:fee2e1a"
+    image: "moonshadow/django-docker:master"
     ports:
       - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/debug/"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+      start_period: 1s
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 0s
+
+
   worker:
-	image: "moonshadow/django-docker:master"
+    image: "moonshadow/django-docker:master"
     command: celery -A django_docker worker -l "${CELERY_LOG_LEVEL:-info}"
   redis:
     image: "redis:alpine"
