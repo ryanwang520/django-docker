@@ -9,7 +9,7 @@ def debug(request):
     # return JsonResponse({"hello": "world"})
 
 def ping(request):
-	return "pong"
+	return HttpResponse("pong")
 
 # return  HttpResponse(str(response))
 
