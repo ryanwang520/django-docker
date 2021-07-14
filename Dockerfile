@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.2
-FROM python:3.9-slim-buster
+FROM python:3.9.6-slim-buster
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get install -y procps net-tools iputils-ping curl && \

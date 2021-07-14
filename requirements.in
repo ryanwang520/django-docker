@@ -1,0 +1,8 @@
+Django
+python-decouple
+gunicorn
+gevent
+requests
+celery
+django-celery-results
+redis
