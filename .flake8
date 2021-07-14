@@ -1,0 +1,12 @@
+[flake8]
+exclude =
+    .git,
+    .eggs
+    __pycache__,
+    docs/source/conf.py,
+    old,
+    build,
+    venv,
+    migrations,
+# E501 line length manged by black
+ignore = E501
