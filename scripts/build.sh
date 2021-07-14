@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-poetry export -o requirements.txt
+pip-compile
 
 GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 GIT_COMMIT=$(git rev-parse --short HEAD)
