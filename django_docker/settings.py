@@ -135,4 +135,4 @@ STATIC_URL = "/static/"
 
 CELERY_RESULT_BACKEND = "django-db"
 
-CELERY_BROKER_URL = f"redis://{config('REDIS_HOST', 'redis')}:6379/0"
+CELERY_BROKER_URL = f'redis://{config("REDIS_HOST", "redis")}:6379/0'
