@@ -1,8 +1,8 @@
 Django
 python-decouple
 gunicorn
-gevent
 requests
+rq
 celery
 django-celery-results
 redis
