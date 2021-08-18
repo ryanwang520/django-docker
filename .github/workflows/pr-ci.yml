@@ -47,4 +47,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile
-          target: test
+
+      - uses: actions/checkout@v1
+      - name: run tests
+        run: docker compose -f docker-compose.yml -f docker-compose-ci.yml run --rm web

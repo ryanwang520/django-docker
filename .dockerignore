@@ -1,4 +1,5 @@
 *
 !django_docker
 !requirements.txt
+!dev-requirements.txt
 !entrypoint.sh

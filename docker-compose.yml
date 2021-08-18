@@ -11,16 +11,6 @@ services:
   web:
     <<: *default-app
     command: python3 manage.py runserver 0.0.0.0:8000
-    # command: [
-    #     "gunicorn",
-    #     "--worker-class=gthread",
-    #     "--workers=4",
-    #     "--threads=8",
-    #     "--log-file=-",
-    #     "-b",
-    #     "0.0.0.0:8000",
-    #     "django_docker.wsgi",
-    #   ]
     ports:
       - "8000:8000"
     environment:

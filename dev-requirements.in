@@ -1,3 +1,4 @@
 # dev-requirements.in
 -c requirements.txt
 black
+pytest
