@@ -18,7 +18,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ghcr.io/metcalfc/docker-action-examples
+          DOCKER_IMAGE=ghcr.io/ryanwang520/django-docker
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
@@ -42,6 +42,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
+
       - name: Login to ghcr
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
