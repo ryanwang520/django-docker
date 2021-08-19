@@ -35,7 +35,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ryanwang520/django-docker
+          DOCKER_IMAGE=ghcr.io/ryanwang520/django-docker
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
